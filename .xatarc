@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://NIKHIL-KUMAR-s-workspace-jkqnmq.us-east-1.xata.sh/db/FakeUsersDB",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}
