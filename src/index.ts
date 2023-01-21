@@ -31,6 +31,26 @@ app.get(
   }
 );
 
+//GET single User
+app.get(
+  "/api/users/:id",
+  async (req: Request<{ id: string }>, res: Response<MyResponse<User>>) => {
+    try {
+      const id = req.params.id;
+      const singleUser = await xata.db.User.read(id);
+
+      if (!singleUser) {
+        return res.status(404).json({ err: "User not found" });
+      }
+
+      return res.status(200).json({ data: singleUser });
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json({ err: "something went wrong" });
+    }
+  }
+);
+
 // POST request
 app.post(
   "/api/users",
